@@ -404,8 +404,9 @@ public class SearchCarFragment extends BaseFragment implements View.OnClickListe
                 break;
 
             case R.id.btn_search_car:
-                requestForSearchCar() ;
-
+                //requestForSearchCar() ;
+                Intent intent = new Intent(getActivity(), CarsResultListActivity.class);
+                startActivity(intent);
         }
     }
 

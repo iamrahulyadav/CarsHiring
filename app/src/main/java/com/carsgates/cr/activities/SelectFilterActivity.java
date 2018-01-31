@@ -1,6 +1,8 @@
 package com.carsgates.cr.activities;
 
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,35 +14,45 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carsgates.cr.R;
+import com.carsgates.cr.adapter.FilterValRecyclerAdapter;
+import com.carsgates.cr.models.FilterDefaultMultipleListModel;
 
-public class SelectFilterActivity extends AppBaseActivity implements View.OnClickListener {
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class SelectFilterActivity extends AppBaseActivity implements View.OnClickListener, FilterValRecyclerAdapter.OnClickItem {
     CheckBox supp;
+    private FilterValRecyclerAdapter filterValAdapter;
     CheckedTextView sup,air,manual,seats,doors,fuel;
     Button reset,applyfilter;
+    RecyclerView rec_supplier,recy_package,recy_carfeatures,recy_insurance;
+    private ArrayList<String> sizes = new ArrayList<>();
+    private ArrayList<FilterDefaultMultipleListModel> sizeMultipleListModels = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_filter);
-        actionBar = getSupportActionBar() ;
-        if(actionBar!=null){
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setHomeAsUpIndicator(R.drawable.back);
+        rec_supplier=findViewById(R.id.rec_supplier);
+        recy_package=findViewById(R.id.recy_package);
+        recy_carfeatures=findViewById(R.id.recy_carfeatures);
+
+        recy_insurance=findViewById(R.id.recy_insurance);
+        sizes = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_size)));
+        for (String size:sizes)
+        {
+            FilterDefaultMultipleListModel model = new FilterDefaultMultipleListModel();
+            model.setName(size);
+            sizeMultipleListModels.add(model);
+
         }
-        //ChechkedTextView
-        sup= (CheckedTextView) findViewById(R.id.supplier);
-        air= (CheckedTextView) findViewById(R.id.filt_air);
-        manual= (CheckedTextView) findViewById(R.id.filt_manual);
-        seats= (CheckedTextView) findViewById(R.id.filt_seaat);
-        doors= (CheckedTextView) findViewById(R.id.filt_door);
-        fuel= (CheckedTextView) findViewById(R.id.filt_fuel);
+        filterValAdapter=new FilterValRecyclerAdapter(this,R.layout.filter_list_val_item_layout,sizeMultipleListModels);
+        rec_supplier.setAdapter(filterValAdapter);
+        rec_supplier.setLayoutManager(new LinearLayoutManager(this));
+        rec_supplier.setHasFixedSize(true);
+        setuptoolbar();
 
-        sup.setOnClickListener(this);
-        air.setOnClickListener(this);
-        manual.setOnClickListener(this);
-        seats.setOnClickListener(this);
-        doors.setOnClickListener(this);
-        fuel.setOnClickListener(this);
-
+        filterValAdapter.setonclick(this);
         //Buttons
         reset= (Button) findViewById(R.id.reset);
         applyfilter= (Button) findViewById(R.id.apply_filter);
@@ -49,6 +61,14 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
         applyfilter.setOnClickListener(this);
 
         setSelectedCarTypes();
+    }
+
+    private void setuptoolbar() {
+        actionBar = getSupportActionBar() ;
+        if(actionBar!=null){
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.drawable.back);
+        }
     }
 
     private void setSelectedCarTypes() {
@@ -85,39 +105,9 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId())
         {
-            case R.id.supplier:
-                changeicon(sup);
-                break;
-            case R.id.filt_air:
-                changeicon(air);
-                break;
-            case R.id.filt_manual:
-                changeicon(manual);
-                break;
-            case R.id.filt_seaat:
-                changeicon(seats);
 
-                break;
-            case R.id.filt_door:
-                changeicon(doors);
-                break;
-            case R.id.filt_fuel:
-                changeicon(fuel);
-                break;
             case R.id.reset:
-                sup.setChecked(true);
-                sup.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-                air.setChecked(true);
-                air.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-                manual.setChecked(true);
-                manual.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-                seats.setChecked(true);
-                seats.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-                doors.setChecked(true);
-                doors.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-                fuel.setChecked(true);
-                fuel.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-                break;
+
             case R.id.apply_filter:
                 finish();
                 break;
@@ -125,19 +115,13 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
 
     }
 
-    private void changeicon(CheckedTextView v) {
-        if (v.isChecked())
-        {
-            v.setCheckMarkDrawable(android.R.drawable.checkbox_on_background);
-           v.setChecked(false);
-         // Toast.makeText(getApplicationContext(),"CH",Toast.LENGTH_LONG).show();
-        }
-        else
-        {
-            v.setCheckMarkDrawable(android.R.drawable.checkbox_off_background);
-            v.setChecked(true);
-          //Toast.makeText(getApplicationContext(),"UH",Toast.LENGTH_LONG).show();
-        }
+
+    @Override
+    public void itemclick(View v, int i) {
+        filterlistclick(i);
     }
 
+    private void filterlistclick(int i) {
+        filterValAdapter.setitemselected(i);
+    }
 }

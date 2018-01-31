@@ -50,8 +50,10 @@ public class SplashActivity extends AppBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         sharedpref=new TinyDB(getApplicationContext());
-        String language_code = sharedpref.getString("language_code") ;
-        boolean isSkipLogin = sharedpref.getBoolean("isSkipLogin");
+       // String language_code = sharedpref.getString("language_code") ;
+        String language_code = "en";
+//  boolean isSkipLogin = sharedpref.getBoolean("isSkipLogin");
+        boolean isSkipLogin = true;
         if(language_code!=null && !language_code.isEmpty()) {
 //            updateResources(this, language_code);
             if (isSkipLogin) {
@@ -177,6 +179,7 @@ public class SplashActivity extends AppBaseActivity {
     }
 
     private void handlespinner() {
+
         final ArrayAdapter<String> adapt=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_item,lan);
         adapt.setDropDownViewResource(R.layout.spinner_item);
         spinner_language.setAdapter(adapt);

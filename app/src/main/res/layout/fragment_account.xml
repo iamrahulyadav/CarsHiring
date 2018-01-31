@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+<ScrollView
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="18dp"
+    android:padding="18dp">
+    <LinearLayout
+        android:id="@+id/ll_booking"
+        android:gravity="center"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal"
+        style="@style/GreyBorderButtonTheme"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_my_bookings"
+            android:id="@+id/ic_"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mybooking"
+            android:layout_marginLeft="10dp"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:textColor="@color/redStrong"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_acccountdetails"
+        android:gravity="center"
+        android:layout_marginTop="9dp"
+        android:orientation="horizontal"
+        style="@style/GreyBorderButtonTheme"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_account_details"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accountdetails"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textColor="@color/redStrong"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_change"
+        android:gravity="center"
+        android:layout_marginTop="9dp"
+        android:orientation="horizontal"
+        style="@style/GreyBorderButtonTheme"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_change_password"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/changepass"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textColor="@color/redStrong"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="9dp"
+        android:orientation="horizontal"
+
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_point_thumb"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:text="200 Points"
+            android:layout_marginLeft="10dp"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textColor="@color/redStrong"
+            />
+    </LinearLayout>
+</LinearLayout>
+    </ScrollView>
+    <include layout="@layout/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
+
+    </include>
+
+</RelativeLayout>

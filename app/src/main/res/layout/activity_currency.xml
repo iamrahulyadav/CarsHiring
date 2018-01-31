@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RadioGroup
+            android:id="@+id/CurencyGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton
+                android:id="@+id/englis"
+                android:padding="10dp"
+                android:text="INR\t\tIndian Rupee"
+                android:button="@null"
+                android:layout_gravity="right"
+                android:drawablePadding="30dp"
+                android:drawableRight="@drawable/draw_filter_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+                android:background="#ccc4c4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <RadioButton
+                android:padding="10dp"
+                android:text="EUR\t\tEuro"
+                android:button="@null"
+                android:layout_gravity="right"
+                android:drawablePadding="30dp"
+                android:drawableRight="@drawable/draw_filter_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+                android:background="#ccc4c4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <RadioButton
+
+                android:padding="10dp"
+                android:text="KWD\t\tKuwaiti Dinar"
+                android:button="@null"
+                android:layout_gravity="right"
+                android:drawablePadding="30dp"
+                android:drawableRight="@drawable/draw_filter_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+                android:background="#ccc4c4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+            <RadioButton
+                android:padding="10dp"
+                android:text="USD\t\tUS Dollar"
+                android:button="@null"
+                android:layout_gravity="right"
+                android:drawablePadding="30dp"
+                android:drawableRight="@drawable/draw_filter_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+                android:background="#ccc4c4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <RadioButton
+                android:padding="10dp"
+                android:text="SAR\t\tSaudi Riyal"
+                android:button="@null"
+                android:layout_gravity="right"
+                android:drawablePadding="30dp"
+                android:drawableRight="@drawable/draw_filter_select"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <View
+                android:background="#ccc4c4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+
+        </RadioGroup>
+        <GridLayout
+            android:columnCount="3"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Token"
+                android:onClick="getToken"/>
+            <Button
+
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:onClick="doLogin"/>
+            <Button
+
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign up"
+                android:onClick="doSignUp"/>
+            <Button
+
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forgot Pass"
+                android:onClick="forgotPassword"/>
+            <Button
+
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Pass"
+                android:onClick="changePassword"/>
+            <Button
+
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Languages"
+                android:onClick="getLanguages"/>
+            <Button
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Contact Us"
+                android:onClick="getContactUs"/>
+            <Button
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="About Us"
+                android:onClick="getAboutUs"/>
+            <Button
+                android:layout_columnWeight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Car Details"
+                android:onClick="getCarDetails"/>
+
+
+        </GridLayout>
+
+    </LinearLayout>
+
+
+</layout>

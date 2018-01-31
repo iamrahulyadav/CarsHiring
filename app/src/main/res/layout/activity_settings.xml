@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carsgates.cr.activities.SettingsActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin="20dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true">
+    <TextView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txtSettings"
+        android:textSize="20sp"
+        android:textColor="@color/redStrong"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:gravity="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_setting_line"/>
+    <LinearLayout
+        android:id="@+id/ll_forgetpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="13dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_miles"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/redStrong"
+            android:text="0"
+            android:textSize="45sp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/txt_seek"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtMiles"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_marginLeft="15dp"
+            />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_height="30dp"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="45dp"
+        android:max="10"/>
+
+</LinearLayout>
+
+</RelativeLayout>

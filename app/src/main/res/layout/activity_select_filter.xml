@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carsgates.cr.activities.SelectFilterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_buttons">
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="#bc1a20"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:text="@string/car_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"/>
+
+
+            <HorizontalScrollView
+                android:scrollbars="none"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+              >
+                <LinearLayout
+                    android:layout_margin="5dp"
+                    android:id="@+id/carTypeContainer"
+                    android:padding="1dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:drawableEnd="@drawable/ic_my_bookings"
+                        android:gravity="center"
+                        android:layout_margin="1dp"
+                        android:paddingTop="5dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:drawablePadding="5dp"
+                        android:textSize="12sp"
+                        android:background="@drawable/draw_cartype_bg"
+                        android:text="Compact\n(1 cars)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="1dp"
+                        android:background="@drawable/draw_cartype_bg"
+                        android:drawableEnd="@drawable/ic_my_bookings"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:paddingBottom="5sp"
+                        android:paddingEnd="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingTop="5dp"
+                        android:text="International\n(1 cars)"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:drawableEnd="@drawable/ic_my_bookings"
+                        android:gravity="center"
+                        android:layout_margin="1dp"
+                        android:paddingTop="5dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5dp"
+                        android:textSize="12sp"
+                        android:drawablePadding="5dp"
+                        android:background="@drawable/draw_cartype_bg"
+                        android:text="Economy\n(1 cars)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:drawableEnd="@drawable/ic_my_bookings"
+                        android:gravity="center"
+                        android:layout_margin="1dp"
+                        android:paddingTop="5dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5sp"
+                        android:textSize="12sp"
+                        android:drawablePadding="5dp"
+                        android:background="@drawable/draw_cartype_bg"
+                        android:text="Intermediate\n(2 cars)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:drawableEnd="@drawable/ic_my_bookings"
+                        android:gravity="center"
+                        android:layout_margin="1dp"
+                        android:paddingTop="5dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5sp"
+                        android:textSize="12sp"
+                        android:drawablePadding="5dp"
+                        android:background="@drawable/draw_cartype_bg"
+                        android:text="Mini\n(1 cars)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:drawableEnd="@drawable/ic_my_bookings"
+                        android:gravity="center"
+                        android:layout_margin="1dp"
+                        android:paddingTop="5dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingBottom="5sp"
+                        android:textSize="12sp"
+                        android:drawablePadding="5dp"
+                        android:background="@drawable/draw_cartype_bg"
+                        android:text="Premium\n(1 cars)"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout
+
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Supplier"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <CheckedTextView
+                        android:id="@+id/supplier"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:text="Instant Cabs\n(4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_brand_logo_small"
+                        />
+                    <CheckedTextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:text="Avis\n(6 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_avislogo"
+                        />
+                    <CheckedTextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:text="Enterprise\n(7 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_enterprlogo"
+                        />
+                    <CheckedTextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="10dp"
+                        android:text="Europcar\n(8 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_europelogo"
+                        />
+                  <!--  <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/supplier"
+                        android:button="@null"
+                        android:drawableStart="@drawable/ic_brand_logo_small"
+                        android:drawablePadding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:drawableEnd="@android:drawable/checkbox_on_background"
+                        android:text="Instant Cabs\n(4 cars)"
+                        />-->
+
+                    <View
+                        android:layout_marginTop="3dp"
+                        android:background="#f2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        />
+
+                </LinearLayout>
+                
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Car Specifications"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:id="@+id/filt_air"
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Air Conditioning (4 Cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_air_condition"/>
+                    <CheckedTextView
+                        android:id="@+id/filt_manual"
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Manual (4 Cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_manual"/>
+                    <CheckedTextView
+                        android:id="@+id/filt_seaat"
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Seats (4 Cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_seat"/>
+                    <CheckedTextView
+                        android:id="@+id/filt_door"
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Doors (4 Cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_door"/>
+
+                    <View
+                        android:background="#f2f2f2"
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Fuel Policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:id="@+id/filt_fuel"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Full to Full\n (4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        android:drawableStart="@drawable/ic_full_to_full"/>
+                </LinearLayout>
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Supplier Rating"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Excellent (4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                     />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Very good (14 cars)"
+                        android:checkMark="@android:drawable/checkbox_off_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Good (24 cars)"
+                        android:checkMark="@android:drawable/checkbox_off_background"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Supplier Location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Shuttle Bus(4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="Car Rental Center(14 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="In Terminal(24 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Number of Doors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="2 Doors(4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="4 Doors(1 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Number of Seats"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="4 Seats(4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="5/7 Seats(1 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="9 Seats(1 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_margin="3dp"
+                    android:background="@drawable/draw_gray_shadow_bg"
+                    android:padding="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="Number of Bags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:layout_margin="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="2 small bags(4 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="1 large bags(1 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                    <CheckedTextView
+                        android:layout_marginBottom="3dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:drawablePadding="10dp"
+                        android:text="2/4 large bags(3 cars)"
+                        android:checkMark="@android:drawable/checkbox_on_background"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_marginTop="1dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/reset"
+            style="@style/GreenButtonTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="0.50"
+            android:padding="10dp"
+            android:text="@string/reset"
+            android:textColor="@color/white"
+            android:textSize="10sp" />
+        <Button
+            android:id="@+id/apply_filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:padding="10dp"
+            android:text="@string/applyfilters"
+            android:textColor="@color/white"
+            style="@style/BlueButtonTheme"
+            android:layout_marginLeft="3dp"
+            android:textSize="10sp"
+            />
+    </LinearLayout>
+</RelativeLayout>
+
+

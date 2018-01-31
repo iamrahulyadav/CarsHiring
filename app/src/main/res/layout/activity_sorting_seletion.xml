@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carsgates.cr.activities.SortingSelectionActivity">
+
+<RadioGroup
+    android:id="@+id/filterGroup"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RadioButton
+        android:padding="10dp"
+        android:text="@string/recommended"
+       android:button="@null"
+        android:layout_gravity="right"
+        android:drawablePadding="30dp"
+        android:drawableRight="@drawable/draw_filter_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <View
+        android:background="#ccc4c4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <RadioButton
+        android:padding="10dp"
+        android:text="@string/price_l_to_h"
+        android:button="@null"
+        android:layout_gravity="right"
+        android:drawablePadding="30dp"
+        android:drawableRight="@drawable/draw_filter_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <View
+        android:background="#ccc4c4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+    <RadioButton
+        android:padding="10dp"
+        android:text="@string/price_h_to_l"
+        android:button="@null"
+        android:layout_gravity="right"
+        android:drawablePadding="30dp"
+        android:drawableRight="@drawable/draw_filter_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <View
+        android:background="#ccc4c4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <RadioButton
+        android:padding="10dp"
+        android:text="@string/rating"
+        android:button="@null"
+        android:layout_gravity="right"
+        android:drawablePadding="30dp"
+        android:drawableRight="@drawable/draw_filter_select"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <View
+        android:background="#ccc4c4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+
+</RadioGroup>
+
+
+</LinearLayout>

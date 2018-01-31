@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:padding="10dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toyota Innova Diesel"
+      android:textSize="18sp"
+        android:gravity="center_vertical|center"
+        android:textColor="#b72025"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_tab2"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="or Similar"
+        android:gravity="center"
+        android:textColor="@color/black"
+        />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_car_img"
+            android:scaleType="fitXY"
+            />
+
+        <ImageView
+            android:layout_width="82dp"
+            android:layout_height="54dp"
+            android:scaleType="fitXY"
+            android:layout_gravity="bottom|end"
+            android:src="@drawable/ic_brand_logo"/>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        style="@style/simpleRectangle"
+        android:padding="5dp">
+
+
+            <TextView
+                android:drawableLeft="@drawable/ic_pickup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/redStrong"
+                android:textSize="15sp"
+                android:drawablePadding="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="Pick-up" />
+
+        <TextView
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tue 2 May 2017-3:00"
+            android:gravity="center"/>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="New Delhi DownTown"
+            android:textSize="10sp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        style="@style/simpleRectangle"
+        android:padding="5dp">
+
+
+            <TextView
+                android:drawableLeft="@drawable/ic_dropoff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/redStrong"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:text="Drop-off"
+                android:drawablePadding="5dp"/>
+
+        <TextView
+            android:layout_marginTop="7dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tue 2 May 2017-3:00"
+            android:gravity="center"/>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="New Delhi DownTown"
+            android:textSize="10sp"/>
+    </LinearLayout>
+
+
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:padding="5dp"
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:text="Payments Details"
+            android:drawableLeft="@drawable/ic_dropoff"
+            android:textColor="@color/redStrong"
+            android:textSize="15sp"
+            android:drawablePadding="5dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/Light_grey"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:text="@string/dummy" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/Light_grey"/>
+        <TextView
+            android:padding="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/redStrong"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/ic_pickup"
+            android:drawableRight="@drawable/ic_tick"
+           android:drawablePadding="5dp"
+            android:text="You Are Protected!" />
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="12sp"
+            android:layout_margin="5dp"
+            android:text="@string/dummy"
+            android:drawableRight="@drawable/ic_tick"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            style="@style/simpleRectangle"
+            android:layout_margin="7dp">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/redStrong"
+                android:textSize="15sp"
+                android:layout_marginLeft="5dp"
+                android:drawableLeft="@drawable/ic_tick"
+                android:drawablePadding="5dp"
+                android:text="Price Breakdown"
+                android:padding="5dp"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Light_grey"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical"
+                    android:layout_weight="0.50"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Car Hire Charge"
+                        android:gravity="center"
+                       />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Car Card Charge"
+                        android:gravity="center"
+                        android:id="@+id/ca"
+                       />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Excess Protection"
+                        android:paddingLeft="10dp"
+                        android:gravity="center"
+                       />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/Light_grey"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Total Price"
+                        android:textColor="@color/green2"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        />
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical"
+                    android:layout_weight="0.50"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INR 5600"
+
+                      />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INR 0.00"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INR 2856"
+                        />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/Light_grey"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="INR 2856"
+                        android:layout_marginTop="5dp"
+                        />
+                </LinearLayout>
+    </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:text="Tap Book Now to complete your booking and except"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/Light_grey"/>
+        <TextView
+            android:id="@+id/txt_terms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Terms and Conditions"
+            android:gravity="center"
+            android:textColor="@color/redStrong"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:padding="2dp"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

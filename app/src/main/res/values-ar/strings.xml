@@ -1,0 +1,173 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CarsGates</string>
+    <string name="checkInternet">تحقق من اتصالك بالإنترنت</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="exit">ىخرج</string>
+
+    <string name="wantExit">هل تريد الخروج؟</string>
+    <string name="yes">نعم فعلا</string>
+    <string name="no">لا</string>
+    <string name="title_home">"CarsGates"</string>
+    <string name="permissionsetting">Please enable all Permissions. </string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_accounts">حساباتي</string>
+    <string name="action_quotes">حجزي</string>
+    <string name="action_search_car">حجز سيارة</string>
+    <string name="action_about_us">معلومات عنا</string>
+    <string name="action_contact_us">اتصل بنا</string>
+    <string name="action_language">لغة</string>
+    <string name="action_currency">دقة</string>
+    <string name="action_settings">إعدادات</string>
+    <string name="title_activity_about_us">AboutUsActivity</string>
+    <string name="language">Choose your language</string>
+    <string name="thankyou">شكرا</string>
+    <string name="login">تسجيل الدخول</string>
+
+    <string name="Welcome">أهلا بك! الرجاء تسجيل الدخول...</string>
+    <string name="enter_email">أدخل بريدك الإلكتروني</string>
+    <string name="enter_password">ادخل رقمك السري</string>
+    <string name="confirm_password">تأكيد كلمة المرور</string>
+    <string name="sign_up">سجل</string>
+    <string name="skip">تخطى</string>
+    <string name="filter">مصنف بواسطة</string>
+    <string name="sort">فرز</string>
+    <string name="sign_in">تسجيل الدخول</string>
+    <string name="login_forgetpassord">هل نسيت كلمة المرور؟</string>
+    <string name="SignUpAccount">التسجيل للحصول على حساب</string>
+    <string name="title_forgetpassword">كلمة سر منسية</string>
+    <string name="forgotpassword">أدخل بريدك الإلكتروني لاستعادة </string>
+    <string name="recoverpassword">استعادة كلمة المرور</string>
+    <string name="title_create_account">إصنع حساب</string>
+
+    <string name="BookingCurrent">تستطيع إضفة حجز يدويا او ابحث على سيارة الان</string>
+    <string name="Searchnow">ابحث الآن</string>
+    <string name="bookingreferencenumber">رقم الحجز</string>
+    <string name="bookingstatus">وضع الحجز</string>
+    <string name="book_today">أحجز اليوم لتوفر أكثر</string>
+    <string name="viewFaq">استعرض الاسئلة المتكررة على موقعنا</string>
+    <string name="search">يارات</string>
+    <string name="mybooking">الحجز</string>
+    <string name="accountdetails">تفاصيل الحساب</string>
+    <string name="changepass">تغير كلمة المرور</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="phone">هاتف</string>
+    <string name="age">عمر</string>
+    <string name="title">عنوان</string>
+    <string name="firstname">الأول اسم</string>
+    <string name="lastname">الاخير اسم</string>
+    <string name="phnumb">رقم الهاتف</string>
+    <string name="currentpass">ادخل كلمة المرور الحالية</string>
+    <string name="newpass">ادخل كلمة المرور الجديدة</string>
+    <string name="confirmpass">تأكيد كلمة المرور الجديدة</string>
+    <string name="passport">رقم الجواز</string>
+    <string name="switch_save">احفظ بيانات السائق لأي حجز قادم</string>
+    <string name="nevermiss">لا تفوت الفرصه في الحصول على نقاط ربح مع كل حجز بالاضافة الي الحصول على اقوى العروض والخصومات</string>
+    <string name="interphnum">International Phone Number</string>
+    <string name="usanumb">From The USA</string>
+    <string name="faq">التعليمات</string>
+    <string name="welcome">مرحبا بك في كارز قيتس</string>
+    <string name="pick_up_location">أختر الموقع</string>
+    <string name="bookinginvoicenumber">Booking Invoice Number</string>
+    <string name="aboutus">At Car Gates everything we do is about giving you the freedom to discover more. We’ll move mountains to find you the right rental car, and bring you a smooth, hassle-free experience from start to finish. Here you can find out more about how we work.</string>
+    <string name="cardnumb">Card Number</string>
+    <string name="car_results">Car Gates</string>
+    <string name="cardname">Card Holder Name</string>
+    <string name="date">MM/YY</string>
+    <string name="Cv">CVV</string>
+    <string name="country">بلد</string>
+    <string name="zipcode">الرمز البريدي</string>
+    <string name="sorted_by">Sorted By</string>
+    <string name="recommended">موصى به</string>
+    <string name="price_l_to_h">السعر (الأدنى الي الأعلى)</string>
+    <string name="price_h_to_l">السعر (الأعلى الي الأدنى)</string>
+    <string name="rating">تقييم</string>
+
+    <string name="car_group">فئة السيارة</string>
+
+
+    <string name="dummy">This is a Dummy Text.</string>
+    <string-array name="selectlanguage">
+        <item>Select Language</item>
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+    <string-array name="عنوان">
+        <item>السيد</item>
+        <item>السيدة</item>
+        <item>يغيب</item>
+        <item>السيدة</item>
+        <item>الدكتور</item>
+    </string-array>
+    <string-array name="numbers">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+    <string-array name="countries">
+        <item>Saudi Arabia</item>
+        <item>Qatar</item>
+        <item>India</item>
+        <item>UAE</item>
+        <item>UK</item>
+    </string-array>
+    <string name="bookProtection1">Go to book with \n Standard Coverage</string>
+    <string name="bookProtection2">Go to book with \n Full Protection</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="applyfilters">تطبيق الفلاتر</string>
+    <string name="usepointvalue">Do you want to use your credit balance"</string>
+
+    <!--fragment search-->
+    <string name="txtSearchACar">البحث عن تأجير السيارات</string>
+    <string name="txtFindCheapCar">ابحث على أرخص سيارة أجار في 49,000 موقع حول العالم</string>
+    <string name="txtUseMyLocation">أستخدم موقعي الحالي</string>
+    <string name="edtPickUp">موقع الإرجاع</string>
+    <string name="switchRetrunSameLoc">العودة إلى نفس الموقع</string>
+    <string name="txtDate">تاريخ</string>
+    <string name="txtTime">زمن</string>
+    <string name="txtDriveAge">عمر السائق</string>
+    <string name="switchDriverAgebw">عمر السائق بين 25 - 70 ؟</string>
+    <string name="switchSearchMap">البحث عن طريق الخريطة</string>
+    <string name="edtDriverAge">أدخل عمر السائق</string>
+
+    <!--activitiy driver details-->
+    <string name="txtLicense">بلد اصدار الرخصة القيادة</string>
+    <string name="txtDriverLicenseNo">رقم رخصة القيادة</string>
+
+    <!--activity access protection-->
+    <string name="txtAccessProtection">عرض شروط التأمين عن طريق كارز قيتس</string>
+    <string name="txtAccessProtectionTerm">عرض شروط التأمين</string>
+
+    <!--activity extra -->
+    <string name="txtExtra">Do You need any extras with\n your cargates</string>
+
+    <!--activity payment-->
+    <string name="edtAmt">أدخل المبلغ</string>
+
+    <!--activity payment details-->
+    <string name="txtPaymentMethod">Payment Methods</string>
+    <string name="txtPayWithCard">Pay with Credit Cards</string>
+
+    <!--activity quotes details-->
+    <string name="txtQuots">اقتباس الاسعار</string>
+    <string name="txtAirCond">التكييف</string>
+    <string name="txtPointCollected">النقاط المكتسبه</string>
+    <string name="txtPickUp">الاستلام</string>
+    <string name="txtDropUp">التسليم</string>
+
+    <!--activity settings-->
+    <string name="txtSettings">إعدادات البحث عن السيارات</string>
+    <string name="txtMiles">miles</string>
+
+    <!--activity thanku-->
+    <string name="txtViewQuotes">الاطلاع على اقتباس الاسعار</string>
+
+    <!--car details tab2-->
+    <string name="txtSupplierDetails">تصفايل شركة التأجير</string>
+    <string name="txtOpeningTime">ساعات العمل</string>
+    <string name="txtSupplierinfo">معلومات شركة التأجير</string>
+    <string name="txtSave">الحفظ و الاقتباس</string>
+</resources>

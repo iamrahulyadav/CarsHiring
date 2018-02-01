@@ -1,6 +1,7 @@
 package com.carsgates.cr.webservices;
 
 import com.carsgates.cr.models.BookingData;
+import com.carsgates.cr.models.SearchData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Data {
     public Driver driver_detail ;
     public SingleCarDetails singleCarDetails;
     public List<Location> locations_list;
-    public List<CarDetails> car_list ;
+    public List<SearchData> car_list ;
     public List<Driver> driver_list ;
     public ArrayList<LanguageModel> language_list;
     public ArrayList<CardList> card_list;

@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -37,6 +38,7 @@ import com.carsgates.cr.activities.LocationSelectionActivity;
 import com.carsgates.cr.activities.MainActivity;
 import com.carsgates.cr.activities.SearchByMapActivity;
 import com.carsgates.cr.activities.SearchQuery;
+import com.carsgates.cr.models.SearchData;
 import com.carsgates.cr.webservices.ApiResponse;
 import com.carsgates.cr.webservices.CarDetails;
 import com.carsgates.cr.webservices.Location;
@@ -45,11 +47,13 @@ import com.carsgates.cr.webservices.RetrofitApiBuilder;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.gson.Gson;
 import com.mukesh.tinydb.TinyDB;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -86,13 +90,14 @@ public class SearchCarFragment extends BaseFragment implements View.OnClickListe
     Calendar calendar_pick, calendar_drop;
 
     static String cityName,pickup_loc_id,drop_loc_id, dropName;
+
     int useCurrentLocation = 0;
     int useSameDestLocation = 0;
     int isBetweenDriverAge = 0 ;
     int pick_hours,pick_minutes,drop_hours, drop_minutes;
     private double currentLat,currentLng;
-    String driver_age ,pick_date , drop_date, languagecode ;
-
+    String driver_age ,pick_date , drop_date, languagecode ,drop_hour,drop_minute,pick_minute,pick_hour,
+            location_code,location_iata,location_type,location_code_drop,location_iata_drop,location_type_drop;
 
     @Nullable
     @Override
@@ -404,13 +409,14 @@ public class SearchCarFragment extends BaseFragment implements View.OnClickListe
                 break;
 
             case R.id.btn_search_car:
-                //requestForSearchCar() ;
-                Intent intent = new Intent(getActivity(), CarsResultListActivity.class);
-                startActivity(intent);
+                requestForSearchCar() ;
+//                Intent intent = new Intent(getActivity(), CarsResultListActivity.class);
+//                startActivity(intent);
         }
     }
 
-    private void chooseSearchAction(List<CarDetails> car_list) {
+    private void chooseSearchAction(List<SearchData> car_list) {
+
         final SwitchCompat switchSearchByMap = (SwitchCompat) view.findViewById(R.id.switchSearchByMap);
         Intent intent ;
         if (switchSearchByMap.isChecked()) {
@@ -423,22 +429,24 @@ public class SearchCarFragment extends BaseFragment implements View.OnClickListe
             startActivity(intent);
         }
     }
+    public static List<SearchData>searchData = new ArrayList<>();
+
 
     private void requestForSearchCar() {
 
-        if(!validateData()){
+        /*if(!validateData()){
             return ;
-        }
+        }*/
+
         Utility.showLoading(getActivity(),"Searching cars...");
         final SearchCarFragment _this = SearchCarFragment.this ;
         RetroFitApis retroFitApis = RetrofitApiBuilder.getRetrofitGlobal() ;
 
+        pick_hour=String.valueOf(pick_hours>9?pick_hours:"0"+pick_hours);
+        pick_minute=String.valueOf(pick_minutes>9?pick_minutes:"0"+pick_minutes);
 
-        final String pick_hour=String.valueOf(pick_hours>9?pick_hours:"0"+pick_hours);
-        final String pick_minute=String.valueOf(pick_minutes>9?pick_minutes:"0"+pick_minutes);
-
-        final String drop_minute=String.valueOf(drop_minutes>9?drop_minutes:"0"+drop_minutes);
-        final String drop_hour=String.valueOf(drop_hours>9?drop_hours:"0"+drop_hours);
+        drop_minute=String.valueOf(drop_minutes>9?drop_minutes:"0"+drop_minutes);
+        drop_hour=String.valueOf(drop_hours>9?drop_hours:"0"+drop_hours);
 
         Log.d("Request Data","access_token="+token+"&pick_city="+pickup_loc_id+"&pick_date="+pick_date+
                 "&pick_houre="+pick_hour+"&pick_minute="+pick_minute+"&drop_city="+drop_loc_id+"&drop_date="+drop_date+"" +
@@ -446,17 +454,64 @@ public class SearchCarFragment extends BaseFragment implements View.OnClickListe
                 "&use_current_location="+useCurrentLocation+"&sameas_pick_location="+useSameDestLocation +
                 "&between_driver_age="+isBetweenDriverAge +"&lat="+currentLat+"&long="+currentLng);
 
-        Call<ApiResponse> responseCall = retroFitApis.search(token,pickup_loc_id,pick_date,pick_hour,
-                pick_minute,drop_loc_id,drop_date,drop_hour,drop_minute,driver_age,useCurrentLocation,
-                useSameDestLocation,isBetweenDriverAge,currentLat,currentLng) ;
+        /*access_token=4ca2a0341708ab9f74164f6e6b75f8d63825c80d&pick_city=1&pick_date=2018-02-08&pick_houre
+        =10&pick_minute=15&drop_city=1&drop_date=2018-02-10&drop_houre=10&drop_minute=15&driver_age
+        =&use_current_location=0&sameas_pick_location=1&between_driver_age=1&lat=28.5929202&long=77.3163672&location_code
+        =4339&location_iata
+        =TXL&location_type=a&location_code_drop=4339&location_iata_drop=TXL&location_type_drop=a&language_code=en*/
+        pickup_loc_id = "1";
+        token="4ca2a0341708ab9f74164f6e6b75f8d63825c80d";
+        pick_date ="2018-02-08";
+        pick_hour ="10";
+        pick_minute="15";
+        drop_loc_id = "1";
+        drop_date="2018-02-10";
+        drop_hour ="10";
+        drop_minute="15";
+        driver_age="1";
+        useCurrentLocation=0;
+        useSameDestLocation=1;
+        isBetweenDriverAge=1;
+        currentLat=28.5929202;
+        currentLng=77.3163672;
+        location_code="4339";
+        location_iata="TXL";
+        location_type="a";
+        location_code_drop="4339";
+        location_iata_drop="TXL";
+        location_type_drop="a";
+        languagecode = "en";
 
+        Call<ApiResponse> responseCall = retroFitApis.search("4ca2a0341708ab9f74164f6e6b75f8d63825c80d","1",
+                "2018-02-08","10",
+                "15","1","2018-02-10","10","15","",useCurrentLocation,
+                useSameDestLocation,1,currentLat,currentLng,location_code,location_iata,
+                location_type,location_code_drop,location_iata_drop,location_type_drop,languagecode) ;
+        final Gson gson = new Gson();
         responseCall.enqueue(new Callback<ApiResponse>() {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 Utility.hidepopup();
+
                 if(response.body()!=null){
+
                     if(response.body().status){
-                        chooseSearchAction(response.body().response.car_list) ;
+                        searchData=response.body().response.car_list;
+
+                        String data = gson.toJson(searchData);
+                        Log.d(TAG, "onResponse: "+data);
+                        for (SearchData searchData1 :searchData){
+                            Log.d(TAG, "onResponse: "+searchData1.getDeposit_name());
+                        }
+                        ArrayList<SearchData>searchData1 = new ArrayList<>();
+                        searchData1.addAll(searchData);
+
+//                        chooseSearchAction(data);
+
+//                        for testing
+                        Intent  intent = new Intent(getActivity(), CarsResultListActivity.class);
+                        startActivity(intent);
+
                     }else{
                         if(response.body().error_code==102)
                             ((AppBaseActivity)getActivity()).getToken(_this);
@@ -466,10 +521,10 @@ public class SearchCarFragment extends BaseFragment implements View.OnClickListe
 
 
 //                for test data
-                Intent intent = new Intent(getActivity(), CarsResultListActivity.class);
+          /*      Intent intent = new Intent(getActivity(), CarsResultListActivity.class);
 
 //                intent.putExtra("car_list", (Serializable) car_list) ;
-                startActivity(intent);
+                startActivity(intent);*/
             }
 
             @Override

@@ -10,12 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.carsgates.cr.R;
 import com.carsgates.cr.activities.CarDetail;
 
+import com.carsgates.cr.models.SearchData;
 import com.carsgates.cr.webservices.CarDetails;
 import com.carsgates.cr.webservices.CarSpecification;
 import com.carsgates.cr.webservices.RetrofitApiBuilder;
@@ -30,18 +32,16 @@ import java.util.List;
 public class CarResultsListAdapter extends RecyclerView.Adapter<CarResultsListAdapter.MyViewHolder>{
     final OnItemClickListener listener;
     private final Context context;
-    List<CarDetails> list;
+    List<SearchData> list;
 
     public interface  OnItemClickListener {
-        void onItemClick(CarDetails carDetail);
+        void onItemClick(SearchData carDetail);
     }
 
-
-    public CarResultsListAdapter(Context context ,List<CarDetails> list,OnItemClickListener listener){
+    public CarResultsListAdapter(Context context ,List<SearchData> list,OnItemClickListener listener){
         this.context = context ;
         this.list =  list ;
         this.listener =  listener ;
-
     }
 
     @Override
@@ -52,9 +52,10 @@ public class CarResultsListAdapter extends RecyclerView.Adapter<CarResultsListAd
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        CarDetails model=list.get(position);
-        holder.tvCarModelName.setText(model.getCarbrandname_name());
-        holder.tvCarPricing.setText(" INR"+model.carmanagement_price);
+        SearchData model=list.get(position);
+
+        holder.tvCarModelName.setText(model.getModel());
+        holder.tvCarPricing.setText(" SAR 341.30 / 2 day\t");
         holder.bindListener(model,listener);
     }
 
@@ -79,15 +80,15 @@ public class CarResultsListAdapter extends RecyclerView.Adapter<CarResultsListAd
 
         }
 
-        void bindListener(final CarDetails carDetail, final OnItemClickListener listener){
+        void bindListener(final SearchData carDetail, final OnItemClickListener listener){
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     listener.onItemClick(carDetail);
                 }
             });
-            setCarImage(carDetail.carmanagement_carimage);
-            setCompanyLogo(carDetail.company_logo);
+//            setCarImage(carDetail.carmanagement_carimage);
+//            setCompanyLogo(carDetail.company_logo);
 //            setupSpecification(carDetail.carmanagement_specifications);
         }
 

@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.google.android.gms:play-services-instantapps-11.4.0">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-instantapps-11.4.0.aar/7d1b0ea12688fd54218b351d0392f73a/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-instantapps-11.4.0.aar/7d1b0ea12688fd54218b351d0392f73a/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-instantapps-11.4.0.aar/e1ac03542c02083807c8327649ce5cff/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/play-services-instantapps-11.4.0.aar/e1ac03542c02083807c8327649ce5cff/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

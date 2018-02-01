@@ -14,20 +14,33 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.carsgates.cr.R;
+import com.carsgates.cr.Utils.Utilities;
+import com.carsgates.cr.Utils.Utility;
 import com.carsgates.cr.adapter.FilterValRecyclerAdapter;
 import com.carsgates.cr.models.FilterDefaultMultipleListModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SelectFilterActivity extends AppBaseActivity implements View.OnClickListener, FilterValRecyclerAdapter.OnClickItem {
-    CheckBox supp;
-    private FilterValRecyclerAdapter filterValAdapter;
-    CheckedTextView sup,air,manual,seats,doors,fuel;
+public class SelectFilterActivity extends AppBaseActivity implements View.OnClickListener {
+
+    private FilterValRecyclerAdapter filterValAdapterinsuran,filterValAdapterpack,filterValAdapterSupl,filterValAdapterpackFeature;
     Button reset,applyfilter;
     RecyclerView rec_supplier,recy_package,recy_carfeatures,recy_insurance;
-    private ArrayList<String> sizes = new ArrayList<>();
-    private ArrayList<FilterDefaultMultipleListModel> sizeMultipleListModels = new ArrayList<>();
+    private ArrayList<String> supplier = new ArrayList<>();
+    private ArrayList<String> features = new ArrayList<>();
+    private ArrayList<String> packages = new ArrayList<>();
+    private ArrayList<String> insurance = new ArrayList<>();
+
+    private ArrayList<FilterDefaultMultipleListModel> supplierMultipleListModels = new ArrayList<>();
+    private ArrayList<FilterDefaultMultipleListModel> featuresMultipleListModels = new ArrayList<>();
+    private ArrayList<FilterDefaultMultipleListModel> packageMultipleListModels = new ArrayList<>();
+    private ArrayList<FilterDefaultMultipleListModel> insuranceMultipleListModels = new ArrayList<>();
+    private ArrayList<String> SelectedSupplier = new ArrayList<String>();
+    private ArrayList<String> SelectedFeatures = new ArrayList<String>();
+    private ArrayList<String> SelectedPackages = new ArrayList<String>();
+    private ArrayList<String> SelectedInsurances = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,21 +51,94 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
         recy_carfeatures=findViewById(R.id.recy_carfeatures);
 
         recy_insurance=findViewById(R.id.recy_insurance);
-        sizes = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_size)));
-        for (String size:sizes)
-        {
-            FilterDefaultMultipleListModel model = new FilterDefaultMultipleListModel();
-            model.setName(size);
-            sizeMultipleListModels.add(model);
+        supplier = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_suplier)));
+        features = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_features)));
 
+
+        packages = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_package)));
+        insurance = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_insurance)));
+
+        FilterDefaultMultipleListModel modelsup,modelfeat,modelpack,modelinsu;
+
+        for (String sup:supplier)
+        {
+            modelsup = new FilterDefaultMultipleListModel();
+            modelsup.setName(sup);
+            supplierMultipleListModels.add(modelsup);
         }
-        filterValAdapter=new FilterValRecyclerAdapter(this,R.layout.filter_list_val_item_layout,sizeMultipleListModels);
-        rec_supplier.setAdapter(filterValAdapter);
+
+        for(String feat:features)
+        {
+            modelfeat = new FilterDefaultMultipleListModel();
+            modelfeat.setName(feat);
+            featuresMultipleListModels.add(modelfeat);
+        }
+
+
+        for(String pac:packages)
+        {
+            modelpack = new FilterDefaultMultipleListModel();
+            modelpack.setName(pac);
+            packageMultipleListModels.add(modelpack);
+        }
+
+        for(String ins:insurance)
+        {
+            modelinsu = new FilterDefaultMultipleListModel();
+            modelinsu.setName(ins);
+            insuranceMultipleListModels.add(modelinsu);
+        }
+
+
+
+        filterValAdapterSupl=new FilterValRecyclerAdapter(this,R.layout.filter_list_val_item_layout,supplierMultipleListModels);
+        rec_supplier.setAdapter(filterValAdapterSupl);
         rec_supplier.setLayoutManager(new LinearLayoutManager(this));
         rec_supplier.setHasFixedSize(true);
+
+        filterValAdapterpackFeature=new FilterValRecyclerAdapter(this,R.layout.filter_list_val_item_layout,featuresMultipleListModels);
+        recy_carfeatures.setAdapter(filterValAdapterpackFeature);
+        recy_carfeatures.setLayoutManager(new LinearLayoutManager(this));
+        recy_carfeatures.setHasFixedSize(true);
+
+        filterValAdapterpack=new FilterValRecyclerAdapter(this,R.layout.filter_list_val_item_layout,packageMultipleListModels);
+        recy_package.setAdapter(filterValAdapterpack);
+        recy_package.setLayoutManager(new LinearLayoutManager(this));
+        recy_package.setHasFixedSize(true);
+
+        filterValAdapterinsuran=new FilterValRecyclerAdapter(this,R.layout.filter_list_val_item_layout,insuranceMultipleListModels);
+        recy_insurance.setAdapter(filterValAdapterinsuran);
+        recy_insurance.setLayoutManager(new LinearLayoutManager(this));
+        recy_insurance.setHasFixedSize(true);
+
+        filterValAdapterSupl.setonclick(new FilterValRecyclerAdapter.OnClickItem() {
+            @Override
+            public void itemclick(View v, int i) {
+                selectedSupplier(i);
+            }
+        });
+        filterValAdapterpackFeature.setonclick(new FilterValRecyclerAdapter.OnClickItem() {
+            @Override
+            public void itemclick(View v, int i) {
+                selectfeature(i);
+            }
+        });
+        filterValAdapterpack.setonclick(new FilterValRecyclerAdapter.OnClickItem() {
+            @Override
+            public void itemclick(View v, int i) {
+                selectpack(i);
+            }
+        });
+        filterValAdapterinsuran.setonclick(new FilterValRecyclerAdapter.OnClickItem() {
+            @Override
+            public void itemclick(View v, int i) {
+                selectinsurance(i);
+            }
+        });
         setuptoolbar();
 
-        filterValAdapter.setonclick(this);
+
+
         //Buttons
         reset= (Button) findViewById(R.id.reset);
         applyfilter= (Button) findViewById(R.id.apply_filter);
@@ -61,6 +147,22 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
         applyfilter.setOnClickListener(this);
 
         setSelectedCarTypes();
+    }
+
+    private void selectinsurance(int i) {
+        filterValAdapterinsuran.setitemselected(i);
+    }
+
+    private void selectpack(int i) {
+        filterValAdapterpack.setitemselected(i);
+    }
+
+    private void selectfeature(int i) {
+        filterValAdapterpackFeature.setitemselected(i);
+    }
+
+    private void selectedSupplier(int i) {
+        filterValAdapterSupl.setitemselected(i);
     }
 
     private void setuptoolbar() {
@@ -72,11 +174,10 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
     }
 
     private void setSelectedCarTypes() {
-
-       LinearLayout carTypeContainer = (LinearLayout) findViewById(R.id.carTypeContainer) ;
-       int catTypeCount  =  carTypeContainer.getChildCount() ;
+        LinearLayout carTypeContainer = (LinearLayout) findViewById(R.id.carTypeContainer) ;
+        int catTypeCount  =  carTypeContainer.getChildCount() ;
         for (int indexChild = 0; indexChild < catTypeCount; indexChild++) {
-           TextView carTypeTV = (TextView) carTypeContainer.getChildAt(indexChild) ;
+            TextView carTypeTV = (TextView) carTypeContainer.getChildAt(indexChild) ;
             if(indexChild==0){
                 carTypeTV.setSelected(true);
             }
@@ -107,21 +208,78 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
         {
 
             case R.id.reset:
+                for(FilterDefaultMultipleListModel model:supplierMultipleListModels)
+                {
+                    model.setChecked(false);
+                }
+                for(FilterDefaultMultipleListModel model:packageMultipleListModels)
+                {
+                    model.setChecked(false);
+                }
+                for(FilterDefaultMultipleListModel model:insuranceMultipleListModels)
+                {
+                    model.setChecked(false);
+                }
+                for(FilterDefaultMultipleListModel model:featuresMultipleListModels)
+                {
+                    model.setChecked(false);
+                }
+                supplierMultipleListModels.clear();
+                packageMultipleListModels.clear();
+                insuranceMultipleListModels.clear();
+                featuresMultipleListModels.clear();
 
+                filterValAdapterpack.notifyDataSetChanged();
+                filterValAdapterSupl.notifyDataSetChanged();
+                filterValAdapterinsuran.notifyDataSetChanged();
+                filterValAdapterpackFeature.notifyDataSetChanged();
+                break;
             case R.id.apply_filter:
-                finish();
+                if(SelectedFeatures!=null || SelectedSupplier!=null || SelectedPackages!=null || SelectedInsurances!=null)
+                {
+                    SelectedSupplier.clear();
+                    SelectedFeatures.clear();
+                    SelectedPackages.clear();
+                    SelectedInsurances.clear();
+                }
+                for(FilterDefaultMultipleListModel model:supplierMultipleListModels)
+                {
+                    if (model.isChecked())
+                    {
+                        SelectedSupplier.add(model.getName());
+                    }
+                }
+                for(FilterDefaultMultipleListModel model:featuresMultipleListModels)
+                {
+                    if (model.isChecked())
+                    {
+                        SelectedFeatures.add(model.getName());
+                    }
+                }
+                for(FilterDefaultMultipleListModel model:packageMultipleListModels)
+                {
+                    if (model.isChecked())
+                    {
+                        SelectedPackages.add(model.getName());
+                    }
+                }
+                for(FilterDefaultMultipleListModel model:insuranceMultipleListModels)
+                {
+                    if (model.isChecked())
+                    {
+                        SelectedInsurances.add(model.getName());
+                    }
+                }
+               Utility.message(this,"Selected Packages are"+SelectedPackages.toString()+"\n"+"Selected Suppliers are"+SelectedSupplier.toString()+"\n"+"Selected Features are"+SelectedFeatures.toString()+"\n"+"Selected Insurances are"+SelectedInsurances.toString());
+               FilterDefaultMultipleListModel listModel=new FilterDefaultMultipleListModel();
+               listModel.setSupplier(SelectedSupplier.toString());
+               listModel.setFeatures(SelectedFeatures.toString());
+               listModel.setPackages(SelectedPackages.toString());
+               listModel.setInsurances(SelectedInsurances.toString());
+
                 break;
         }
 
     }
 
-
-    @Override
-    public void itemclick(View v, int i) {
-        filterlistclick(i);
-    }
-
-    private void filterlistclick(int i) {
-        filterValAdapter.setitemselected(i);
-    }
 }

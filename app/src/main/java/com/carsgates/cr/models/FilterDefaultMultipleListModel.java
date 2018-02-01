@@ -5,8 +5,42 @@ package com.carsgates.cr.models;
  * Contact Number : +91 9796173066
  */
 public class FilterDefaultMultipleListModel {
+    String Supplier,Features,Packages,Insurances;
     String name;
     boolean checked=false;
+    public String getSupplier() {
+        return Supplier;
+    }
+
+    public void setSupplier(String supplier) {
+        Supplier = supplier;
+    }
+
+    public String getFeatures() {
+        return Features;
+    }
+
+    public void setFeatures(String features) {
+        Features = features;
+    }
+
+    public String getPackages() {
+        return Packages;
+    }
+
+    public void setPackages(String packages) {
+        Packages = packages;
+    }
+
+    public String getInsurances() {
+        return Insurances;
+    }
+
+    public void setInsurances(String insurances) {
+        Insurances = insurances;
+    }
+
+
 
     public String getName() {
         return name;

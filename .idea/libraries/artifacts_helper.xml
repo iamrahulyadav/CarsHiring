@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="artifacts:helper">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/gd_helper-release.aar/cfe612a0f91d842f083521a6318a8010/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/gd_helper-release.aar/cfe612a0f91d842f083521a6318a8010/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/gd_helper-release.aar/238585ede35bab5f0acaa7fd982eb35a/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/gd_helper-release.aar/238585ede35bab5f0acaa7fd982eb35a/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

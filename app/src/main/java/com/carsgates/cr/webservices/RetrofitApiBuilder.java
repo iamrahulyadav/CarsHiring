@@ -1,6 +1,7 @@
 package com.carsgates.cr.webservices;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -20,8 +21,11 @@ public class RetrofitApiBuilder {
     public final static String IMG_BASE_URL = BASE_URL+ "upload/";
 
     public static RetroFitApis getRetrofitGlobal(){
-
-        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(new Interceptor() {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .connectTimeout(10000, TimeUnit.SECONDS)
+                .writeTimeout(10000, TimeUnit.SECONDS)
+                .readTimeout(30000, TimeUnit.SECONDS)
+               .addInterceptor(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
                 Request request;

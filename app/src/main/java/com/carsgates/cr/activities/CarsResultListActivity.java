@@ -30,7 +30,7 @@ public class CarsResultListActivity extends AppBaseActivity {
     public String filter ;
     List<SearchData> listCarResult =  new ArrayList<>();
     List<SearchData.FeatureBean> featuresAllList =  new ArrayList<>();
-    List<String>supplierList=new ArrayList<>();
+    public static List<String> supplierList=new ArrayList<>();
     List<String>featuresList=new ArrayList<>();
     CarResultsListAdapter listAdapter;
     @Override
@@ -74,7 +74,7 @@ public class CarsResultListActivity extends AppBaseActivity {
             @Override
             public void onItemClick(SearchData carDetail) {
                 Intent intent = new Intent(CarsResultListActivity.this,CarDetail.class);
-//                intent.putExtra("car_id",carDetail.get);
+//              intent.putExtra("car_id",carDetail.get);
                 startActivity(intent);
             }
         });

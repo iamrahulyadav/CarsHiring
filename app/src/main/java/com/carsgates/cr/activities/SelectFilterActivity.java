@@ -1,6 +1,7 @@
 package com.carsgates.cr.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -10,20 +11,29 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.carsgates.cr.R;
 import com.carsgates.cr.Utils.Utilities;
 import com.carsgates.cr.Utils.Utility;
 import com.carsgates.cr.adapter.FilterValRecyclerAdapter;
+import com.carsgates.cr.fragments.SearchCarFragment;
 import com.carsgates.cr.models.FilterDefaultMultipleListModel;
+import com.carsgates.cr.webservices.RetroFitApis;
+import com.carsgates.cr.webservices.RetrofitApiBuilder;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SelectFilterActivity extends AppBaseActivity implements View.OnClickListener {
-
+    RadioGroup CategoriesGroup;
     private FilterValRecyclerAdapter filterValAdapterinsuran,filterValAdapterpack,filterValAdapterSupl,filterValAdapterpackFeature;
     Button reset,applyfilter;
     RecyclerView rec_supplier,recy_package,recy_carfeatures,recy_insurance;
@@ -41,17 +51,18 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
     private ArrayList<String> SelectedPackages = new ArrayList<String>();
     private ArrayList<String> SelectedInsurances = new ArrayList<String>();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_filter);
+        CategoriesGroup=findViewById(R.id.categorariesgroup);
+        setupcategorygroup();
         rec_supplier=findViewById(R.id.rec_supplier);
         recy_package=findViewById(R.id.recy_package);
         recy_carfeatures=findViewById(R.id.recy_carfeatures);
-
+        ArrayList<String> getlist= (ArrayList<String>) CarsResultListActivity.supplierList;
         recy_insurance=findViewById(R.id.recy_insurance);
-        supplier = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_suplier)));
+        supplier .addAll(getlist);
         features = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.filter_features)));
 
 
@@ -140,13 +151,25 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
 
 
         //Buttons
-        reset= (Button) findViewById(R.id.reset);
-        applyfilter= (Button) findViewById(R.id.apply_filter);
+        reset= findViewById(R.id.reset);
+        applyfilter=  findViewById(R.id.apply_filter);
 
         reset.setOnClickListener(this);
         applyfilter.setOnClickListener(this);
 
         setSelectedCarTypes();
+    }
+
+    private void setupcategorygroup() {
+        if(Utility.isNetworkConnected(getApplicationContext()))
+        {
+            RequestQueue queue=Volley.newRequestQueue(this);
+          //  StringRequest stringRequest=new StringRequest(Request.Method.POST,)
+        }
+        else
+        {
+
+        }
     }
 
     private void selectinsurance(int i) {
@@ -174,7 +197,7 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
     }
 
     private void setSelectedCarTypes() {
-        LinearLayout carTypeContainer = (LinearLayout) findViewById(R.id.carTypeContainer) ;
+        LinearLayout carTypeContainer =findViewById(R.id.carTypeContainer) ;
         int catTypeCount  =  carTypeContainer.getChildCount() ;
         for (int indexChild = 0; indexChild < catTypeCount; indexChild++) {
             TextView carTypeTV = (TextView) carTypeContainer.getChildAt(indexChild) ;
@@ -224,10 +247,10 @@ public class SelectFilterActivity extends AppBaseActivity implements View.OnClic
                 {
                     model.setChecked(false);
                 }
-                supplierMultipleListModels.clear();
+               /* supplierMultipleListModels.clear();
                 packageMultipleListModels.clear();
                 insuranceMultipleListModels.clear();
-                featuresMultipleListModels.clear();
+                featuresMultipleListModels.clear();*/
 
                 filterValAdapterpack.notifyDataSetChanged();
                 filterValAdapterSupl.notifyDataSetChanged();

@@ -55,6 +55,7 @@
     <string name="login">Login</string>
     <string name="title">Title</string>
     <string name="firstname">First Name</string>
+    <string name="surname">Sur Name</string>
     <string name="lastname">Last Name</string>
     <string name="phnumb">Phone Number</string>
     <string name="currentpass">Enter Current Password</string>
@@ -131,10 +132,16 @@
     <string name="switchDriverAgebw">Driver Aged between 25 - 70?</string>
     <string name="switchSearchMap">Search By map</string>
     <string name="edtDriverAge">Enter driver age</string>
+    <string name="licenseno">License No</string>
+    <string name="licenseorigion">License Origin</string>
+    <string name="city">City</string>
+    <string name="address">Address</string>
+
 
     <!--activitiy driver details-->
     <string name="txtLicense">بلد اصدار الرخصة القيادة</string>
     <string name="txtDriverLicenseNo">رقم رخصة القيادة</string>
+    <string name="update">Save</string>
 
     <!--activity access protection-->
     <string name="txtAccessProtection">عرض شروط التأمين عن طريق كارز قيتس</string>
